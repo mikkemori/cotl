@@ -93,39 +93,33 @@ body::after {
   background: linear-gradient(to bottom, transparent, var(--gold));
 }
 
-.header-eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.4em;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  animation: fadeInDown 1s ease both;
-}
-
-.header-title {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(2rem, 6vw, 4.5rem);
-  font-weight: 900;
-  line-height: 1;
-  color: var(--gold-bright);
-  text-shadow:
-    0 0 40px rgba(240,192,64,0.5),
-    0 0 80px rgba(240,192,64,0.2),
-    3px 3px 0 var(--crimson),
-    6px 6px 0 rgba(0,0,0,0.5);
-  margin-bottom: 8px;
+.header-logo {
+  display: block;
+  max-width: 480px;
+  width: 90%;
+  margin: 0 auto 12px;
   animation: fadeInDown 1s 0.2s ease both;
+  opacity: 0;
 }
 
 .header-subtitle {
   font-family: 'Cinzel Decorative', serif;
-  font-size: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
   font-weight: 400;
   color: var(--blood-bright);
   text-shadow: 0 0 20px rgba(192,57,43,0.6);
   letter-spacing: 0.08em;
   animation: fadeInDown 1s 0.4s ease both;
+  margin-bottom: 8px;
+}
+
+.header-subnote {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--gold-dim);
+  text-transform: uppercase;
+  animation: fadeInDown 1s 0.5s ease both;
 }
 
 .header-eye {
@@ -214,113 +208,6 @@ body::after {
   color: var(--gold-dim);
   text-transform: uppercase;
   white-space: nowrap;
-}
-
-/* ===== FEATURED CARD ===== */
-.featured-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.featured-card {
-  background: linear-gradient(135deg, #1e1608 0%, #2a1c0a 50%, #1a1208 100%);
-  border: 2px solid var(--gold);
-  border-radius: 4px;
-  padding: 40px;
-  max-width: 480px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  box-shadow:
-    0 0 60px rgba(201,162,39,0.2),
-    0 0 120px rgba(139,26,26,0.3),
-    inset 0 0 40px rgba(0,0,0,0.5);
-  animation: fadeInUp 1s 0.5s ease both;
-  opacity: 0;
-}
-
-.featured-card::before {
-  content: '';
-  position: absolute;
-  inset: 6px;
-  border: 1px solid rgba(201,162,39,0.2);
-  border-radius: 2px;
-  pointer-events: none;
-}
-
-.featured-card::after {
-  content: '✦ LEADER ✦';
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--bg-deep);
-  padding: 0 16px;
-  font-family: 'Cinzel', serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.35em;
-  color: var(--gold);
-}
-
-.featured-portrait {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #3a2a10, #0d0900);
-  border: 3px solid var(--gold);
-  box-shadow: 0 0 30px rgba(201,162,39,0.4), 0 0 60px rgba(139,26,26,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.featured-portrait::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), transparent 60%);
-}
-
-.featured-name {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--gold-bright);
-  text-shadow: 0 0 20px rgba(240,192,64,0.5);
-  margin-bottom: 4px;
-}
-
-.featured-role {
-  font-family: 'Cinzel', serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.35em;
-  color: var(--blood-bright);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.featured-traits {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.featured-desc {
-  font-style: italic;
-  color: var(--parchment-dark);
-  font-size: 0.9rem;
-  line-height: 1.8;
-  border-top: 1px solid rgba(201,162,39,0.15);
-  padding-top: 16px;
-  margin-top: 4px;
 }
 
 /* ===== GRID ===== */
@@ -467,78 +354,6 @@ body::after {
   font-size: 0.55rem;
   color: rgba(138,112,64,0.25);
   letter-spacing: 0.1em;
-}
-
-/* ===== MINI CARDS ===== */
-.mini-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-.mini-card {
-  background: linear-gradient(160deg, #151009 0%, #100d06 100%);
-  border: 1px solid #2a1e0c;
-  border-radius: 4px;
-  padding: 20px 18px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  animation: fadeInUp 0.8s ease both;
-  opacity: 0;
-}
-
-.mini-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--gold-dim);
-}
-
-.mini-portrait {
-  width: 70px;
-  height: 70px;
-  border-radius: 3px;
-  background: radial-gradient(circle at 40% 35%, #201608, #060400);
-  border: 1px solid #3a2a14;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-.mini-name {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 1rem;
-  color: var(--gold-bright);
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.mini-role {
-  font-family: 'Cinzel', serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
-  color: var(--rune);
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.mini-divider {
-  height: 1px;
-  width: 100%;
-  background: linear-gradient(to right, transparent, rgba(201,162,39,0.15), transparent);
-  margin: 8px 0;
-}
-
-.mini-desc {
-  font-size: 0.75rem;
-  color: var(--parchment-dark);
-  font-style: italic;
-  text-align: center;
-  line-height: 1.7;
 }
 
 /* ===== FOOTER ===== */
