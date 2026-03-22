@@ -326,28 +326,23 @@ body::after {
 /* ===== GRID ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
 }
 
 .card {
-  background: linear-gradient(160deg, #1a1208 0%, #150f06 100%);
-  border: 1px solid var(--card-border);
+  background: linear-gradient(160deg, #151009 0%, #100d06 100%);
+  border: 1px solid #2a1e0c;
   border-radius: 4px;
-  padding: 28px 24px;
+  padding: 20px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease;
   animation: fadeInUp 0.8s ease both;
   opacity: 0;
   overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(201,162,39,0.03) 0%, transparent 60%);
-  pointer-events: none;
 }
 
 .card::after {
@@ -361,9 +356,8 @@ body::after {
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   border-color: var(--gold-dim);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(201,162,39,0.1);
 }
 
 .card:hover::after { opacity: 1; }
@@ -383,16 +377,16 @@ body::after {
 .card-corner.br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
 
 .card-portrait {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 16px;
-  border-radius: 4px;
-  background: radial-gradient(circle at 40% 35%, #2a1e0c, #080500);
-  border: 1px solid var(--gold-dim);
+  width: 70px;
+  height: 70px;
+  border-radius: 3px;
+  background: radial-gradient(circle at 40% 35%, #201608, #060400);
+  border: 1px solid #3a2a14;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.6rem;
+  font-size: 2rem;
+  margin-bottom: 12px;
   position: relative;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   transition: box-shadow 0.3s ease;
@@ -405,13 +399,13 @@ body::after {
 .card-portrait-glow {
   position: absolute;
   inset: -1px;
-  border-radius: 4px;
+  border-radius: 3px;
   background: linear-gradient(135deg, rgba(201,162,39,0.2), transparent 50%);
 }
 
 .card-name {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--gold-bright);
   text-align: center;
@@ -421,20 +415,20 @@ body::after {
 
 .card-title {
   font-family: 'Cinzel', serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.35em;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
   color: var(--blood-bright);
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .traits {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
   justify-content: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .trait {
@@ -444,7 +438,7 @@ body::after {
   text-transform: uppercase;
   color: var(--parchment-dark);
   border: 1px solid rgba(138,112,64,0.3);
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 2px;
   background: rgba(0,0,0,0.3);
   white-space: nowrap;
@@ -452,13 +446,14 @@ body::after {
 
 .card-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(201,162,39,0.2), transparent);
-  margin: 12px 0;
+  width: 100%;
+  background: linear-gradient(to right, transparent, rgba(201,162,39,0.15), transparent);
+  margin: 8px 0;
 }
 
 .card-desc {
-  font-size: 0.82rem;
-  line-height: 1.8;
+  font-size: 0.75rem;
+  line-height: 1.7;
   color: var(--parchment-dark);
   font-style: italic;
   text-align: center;
@@ -529,19 +524,6 @@ body::after {
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 10px;
-}
-
-.mini-traits {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.mini-trait {
-  font-size: 0.7rem;
-  color: var(--parchment-dark);
 }
 
 .mini-divider {
