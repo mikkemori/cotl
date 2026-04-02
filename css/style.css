@@ -388,36 +388,15 @@ body::after {
   background: var(--bg-deep);
   border-left: 2px solid var(--gold-dim);
   border-right: 2px solid var(--gold-dim);
-  height: 20px;
+  height: 16px;
   transition: border-color 0.3s ease;
-  overflow: visible;
 }
 
 .card-wrap:hover .card-ticket-sep {
   border-color: var(--gold);
 }
 
-/* ノッチ：ページ背景色の半円でへこんで見せる */
-.card-ticket-notch {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--bg-deep);
-  flex-shrink: 0;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  /* 枠線側にはみ出して、枠の線を消すことでくぼみに見せる */
-  box-shadow: 0 0 0 2px var(--gold-dim);
-}
-
-.card-wrap:hover .card-ticket-notch {
-  box-shadow: 0 0 0 2px var(--gold);
-}
-
-.card-ticket-notch.left  { left: -12px; }
-.card-ticket-notch.right { right: -12px; }
+.card-ticket-notch { display: none; }
 
 .card-ticket-line {
   flex: 1;
