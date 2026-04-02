@@ -215,28 +215,41 @@ body::after {
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 20px;
+  gap: 36px;
 }
 
+/* ===== CARD WRAP ===== */
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease both;
+  opacity: 0;
+}
+
+/* ── 上：信者カード ── */
 .card {
   background: linear-gradient(160deg, #151009 0%, #100d06 100%);
   border: 2px solid var(--gold-dim);
-  border-radius: 16px;
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
   padding: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 18px;
   position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease both;
-  opacity: 0;
+  transition: border-color 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-4px);
+.card-wrap:hover .card,
+.card-wrap:hover .card-ticket-sep,
+.card-wrap:hover .card-streamer {
   border-color: var(--gold);
-  box-shadow: 0 8px 32px rgba(201,162,39,0.15);
+}
+
+.card-wrap:hover {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease;
 }
 
 /* Corner ornaments — 非表示 */
@@ -260,7 +273,7 @@ body::after {
   overflow: hidden;
 }
 
-.card:hover .card-portrait {
+.card-wrap:hover .card-portrait {
   border-color: var(--gold);
 }
 
@@ -289,7 +302,7 @@ body::after {
   gap: 8px;
 }
 
-/* 名前は枠の右上に絶対配置 */
+/* 名前は枠の上部中央に飛び出す */
 .card-name-tag {
   position: absolute;
   top: -16px;
@@ -301,9 +314,10 @@ body::after {
   padding: 4px 24px;
   white-space: nowrap;
   transition: border-color 0.3s ease;
+  z-index: 1;
 }
 
-.card:hover .card-name-tag {
+.card-wrap:hover .card-name-tag {
   border-color: var(--gold);
 }
 
@@ -345,13 +359,135 @@ body::after {
 .card-divider { display: none; }
 
 .card-number {
-  position: absolute;
-  bottom: 8px;
-  right: 12px;
   font-family: 'Cinzel', serif;
   font-size: 0.5rem;
   color: rgba(138,112,64,0.2);
   letter-spacing: 0.1em;
+}
+
+/* ── チケット切り取り線 ── */
+.card-ticket-sep {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(160deg, #131008 0%, #0f0c05 100%);
+  border-left: 2px solid var(--gold-dim);
+  border-right: 2px solid var(--gold-dim);
+  height: 24px;
+  transition: border-color 0.3s ease;
+}
+
+.card-ticket-notch {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--bg-deep);
+  border: 2px solid var(--gold-dim);
+  flex-shrink: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: border-color 0.3s ease;
+  z-index: 1;
+}
+
+.card-wrap:hover .card-ticket-notch {
+  border-color: var(--gold);
+}
+
+.card-ticket-notch.left  { left: -14px; }
+.card-ticket-notch.right { right: -14px; }
+
+.card-ticket-line {
+  flex: 1;
+  border-top: 2px dashed rgba(201,162,39,0.3);
+  margin: 0 16px;
+}
+
+/* ── 下：配信者セクション ── */
+.card-streamer {
+  background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
+  border: 2px solid var(--gold-dim);
+  border-radius: 0 0 16px 16px;
+  border-top: none;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.card-streamer-portrait {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #1e1408, #060400);
+  border: 2px solid var(--gold-dim);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.card-wrap:hover .card-streamer-portrait {
+  border-color: var(--gold);
+}
+
+.card-streamer-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-streamer-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-streamer-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--parchment);
+  letter-spacing: 0.05em;
+}
+
+.card-streamer-desc {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--parchment-dark);
+  font-style: italic;
+}
+
+.card-streamer-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.streamer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(201,162,39,0.06);
+  border: 1px solid rgba(201,162,39,0.2);
+  color: var(--gold-dim);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.streamer-link:hover {
+  background: rgba(201,162,39,0.18);
+  color: var(--gold-bright);
+  border-color: var(--gold);
 }
 
 /* ===== FOOTER ===== */
@@ -406,13 +542,13 @@ body::after {
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
   }
   .header { padding: 40px 16px 30px; }
 }
 
 @media (max-width: 480px) {
-  .grid { gap: 20px; }
-  .card { padding: 16px; gap: 14px; }
+  .card, .card-streamer { padding: 14px; gap: 12px; }
   .card-portrait { width: 72px; height: 72px; }
+  .card-streamer-portrait { width: 48px; height: 48px; }
 }
