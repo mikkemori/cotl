@@ -214,109 +214,107 @@ body::after {
 /* ===== GRID ===== */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px 24px;
 }
 
 .card {
-  background: linear-gradient(160deg, #151009 0%, #100d06 100%);
-  border: 1px solid #2a1e0c;
-  border-radius: 4px;
-  padding: 20px 18px;
+  background: transparent;
+  border: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
   animation: fadeInUp 0.8s ease both;
   opacity: 0;
-  overflow: hidden;
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  border-color: var(--gold-dim);
+  transform: translateY(-5px);
 }
 
-.card:hover::after { opacity: 1; }
+/* Corner ornaments — 非表示に */
+.card-corner { display: none; }
 
-/* Corner ornaments */
-.card-corner {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  border-color: var(--gold-dim);
-  border-style: solid;
-  opacity: 0.5;
-}
-.card-corner.tl { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
-.card-corner.tr { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
-.card-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 1px 1px; }
-.card-corner.br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
-
+/* ── 丸い画像エリア ── */
 .card-portrait {
-  width: 70px;
-  height: 70px;
-  border-radius: 3px;
-  background: radial-gradient(circle at 40% 35%, #201608, #060400);
-  border: 1px solid #3a2a14;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #2a1c0a, #0a0600);
+  border: 3px solid var(--gold-dim);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  margin-bottom: 12px;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  transition: box-shadow 0.3s ease;
+  box-shadow:
+    0 0 0 6px rgba(201,162,39,0.08),
+    0 6px 24px rgba(0,0,0,0.7);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .card:hover .card-portrait {
-  box-shadow: 0 4px 30px rgba(201,162,39,0.2);
+  border-color: var(--gold);
+  box-shadow:
+    0 0 0 6px rgba(201,162,39,0.18),
+    0 8px 32px rgba(201,162,39,0.2);
 }
 
 .card-portrait img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 50%;
   display: block;
 }
 
 .card-portrait-glow {
   position: absolute;
-  inset: -1px;
-  border-radius: 3px;
-  background: linear-gradient(135deg, rgba(201,162,39,0.2), transparent 50%);
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, rgba(201,162,39,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* ── 名前タグ（画像の下に重なる枠） ── */
+.card-name-tag {
+  background: var(--bg-deep);
+  border: 2px solid var(--gold-dim);
+  border-radius: 999px;
+  padding: 5px 20px;
+  margin-top: -16px;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover .card-name-tag {
+  border-color: var(--gold);
 }
 
 .card-name {
   font-family: 'Cinzel Decorative', serif;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--gold-bright);
   text-align: center;
-  margin-bottom: 4px;
-  text-shadow: 0 0 15px rgba(240,192,64,0.3);
+  white-space: nowrap;
+  text-shadow: 0 0 12px rgba(240,192,64,0.3);
 }
 
-.card-title {
-  font-family: 'Cinzel', serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
-  color: var(--blood-bright);
-  text-align: center;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+/* ── テキスト部分 ── */
+.card-body {
+  width: 100%;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .traits {
@@ -324,13 +322,12 @@ body::after {
   flex-wrap: wrap;
   gap: 5px;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 .trait {
   font-family: 'Cinzel', serif;
-  font-size: 0.55rem;
-  letter-spacing: 0.12em;
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--parchment-dark);
   border: 1px solid rgba(138,112,64,0.3);
@@ -342,27 +339,25 @@ body::after {
 
 .card-divider {
   height: 1px;
-  width: 100%;
-  background: linear-gradient(to right, transparent, rgba(201,162,39,0.15), transparent);
-  margin: 8px 0;
+  width: 80%;
+  background: linear-gradient(to right, transparent, rgba(201,162,39,0.2), transparent);
 }
 
 .card-desc {
   font-size: 0.75rem;
-  line-height: 1.7;
+  line-height: 1.75;
   color: var(--parchment-dark);
   font-style: italic;
   text-align: center;
+  padding: 0 4px;
 }
 
 .card-number {
-  position: absolute;
-  bottom: 10px;
-  right: 14px;
   font-family: 'Cinzel', serif;
-  font-size: 0.55rem;
-  color: rgba(138,112,64,0.25);
+  font-size: 0.5rem;
+  color: rgba(138,112,64,0.2);
   letter-spacing: 0.1em;
+  margin-top: 2px;
 }
 
 /* ===== FOOTER ===== */
@@ -415,13 +410,20 @@ body::after {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-  .mini-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 16px;
+  }
   .header { padding: 40px 16px 30px; }
-  .featured-card { padding: 28px 20px; }
 }
 
 @media (max-width: 480px) {
-  .grid { grid-template-columns: 1fr; }
-  .mini-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 12px;
+  }
+  .card-portrait {
+    width: 130px;
+    height: 130px;
+  }
 }
