@@ -230,14 +230,29 @@ body::after {
 .card {
   background: linear-gradient(160deg, #151009 0%, #100d06 100%);
   border: 2px solid var(--gold-dim);
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px 16px 8px 8px;
   border-bottom: none;
   padding: 20px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 18px;
   position: relative;
+  transition: border-color 0.3s ease;
+}
+
+/* ── 下：配信者セクション ── */
+.card-streamer {
+  background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
+  border: 2px solid var(--gold-dim);
+  border-radius: 8px 8px 16px 16px;
+  border-top: none;
+  padding: 24px 20px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
   transition: border-color 0.3s ease;
 }
 
@@ -370,53 +385,47 @@ body::after {
   display: flex;
   align-items: center;
   position: relative;
-  background: linear-gradient(160deg, #131008 0%, #0f0c05 100%);
+  background: var(--bg-deep);
   border-left: 2px solid var(--gold-dim);
   border-right: 2px solid var(--gold-dim);
-  height: 24px;
+  height: 20px;
   transition: border-color 0.3s ease;
+  overflow: visible;
 }
 
+.card-wrap:hover .card-ticket-sep {
+  border-color: var(--gold);
+}
+
+/* ノッチ：ページ背景色の半円でへこんで見せる */
 .card-ticket-notch {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: var(--bg-deep);
-  border: 2px solid var(--gold-dim);
   flex-shrink: 0;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  transition: border-color 0.3s ease;
-  z-index: 1;
+  z-index: 2;
+  /* 枠線側にはみ出して、枠の線を消すことでくぼみに見せる */
+  box-shadow: 0 0 0 2px var(--gold-dim);
 }
 
 .card-wrap:hover .card-ticket-notch {
-  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold);
 }
 
-.card-ticket-notch.left  { left: -14px; }
-.card-ticket-notch.right { right: -14px; }
+.card-ticket-notch.left  { left: -12px; }
+.card-ticket-notch.right { right: -12px; }
 
 .card-ticket-line {
   flex: 1;
-  border-top: 2px dashed rgba(201,162,39,0.3);
-  margin: 0 16px;
+  border-top: 2px dashed rgba(201,162,39,0.35);
+  margin: 0 14px;
 }
 
-/* ── 下：配信者セクション ── */
-.card-streamer {
-  background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
-  border: 2px solid var(--gold-dim);
-  border-radius: 0 0 16px 16px;
-  border-top: none;
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 14px;
-  transition: border-color 0.3s ease;
-}
+/* ── 配信者アイコン ── */
 
 .card-streamer-portrait {
   width: 60px;
