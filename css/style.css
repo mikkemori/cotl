@@ -230,10 +230,10 @@ body::after {
 .card {
   background: linear-gradient(160deg, #151009 0%, #100d06 100%);
   border: 2px solid var(--gold-dim);
-  border-radius: 16px 16px 8px 8px;
+  border-radius: 16px 16px 0 0;
   border-bottom: none;
   padding: 20px;
-  padding-bottom: 24px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -246,15 +246,32 @@ body::after {
 .card-streamer {
   background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
   border: 2px solid var(--gold-dim);
-  border-radius: 8px 8px 16px 16px;
+  border-radius: 0 0 16px 16px;
   border-top: none;
-  padding: 24px 20px 16px;
+  padding: 16px 20px 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 14px;
   transition: border-color 0.3s ease;
 }
+
+/* ── チケット切り取り線 ── */
+.card-ticket-sep {
+  border-left: 2px solid var(--gold-dim);
+  border-right: 2px solid var(--gold-dim);
+  border-top: 2px dashed rgba(201,162,39,0.4);
+  height: 0;
+  transition: border-color 0.3s ease;
+}
+
+.card-wrap:hover .card-ticket-sep {
+  border-color: var(--gold);
+  border-top-color: rgba(240,192,64,0.5);
+}
+
+.card-ticket-notch { display: none; }
+.card-ticket-line { display: none; }
 
 .card-wrap:hover .card,
 .card-wrap:hover .card-ticket-sep,
@@ -378,30 +395,6 @@ body::after {
   font-size: 0.5rem;
   color: rgba(138,112,64,0.2);
   letter-spacing: 0.1em;
-}
-
-/* ── チケット切り取り線 ── */
-.card-ticket-sep {
-  display: flex;
-  align-items: center;
-  position: relative;
-  background: var(--bg-deep);
-  border-left: 2px solid var(--gold-dim);
-  border-right: 2px solid var(--gold-dim);
-  height: 16px;
-  transition: border-color 0.3s ease;
-}
-
-.card-wrap:hover .card-ticket-sep {
-  border-color: var(--gold);
-}
-
-.card-ticket-notch { display: none; }
-
-.card-ticket-line {
-  flex: 1;
-  border-top: 2px dashed rgba(201,162,39,0.35);
-  margin: 0 14px;
 }
 
 /* ── 配信者アイコン ── */
