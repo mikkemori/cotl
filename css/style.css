@@ -244,16 +244,26 @@ body::after {
 
 /* ── 下：配信者セクション ── */
 .card-streamer {
-  background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
-  border: 2px solid var(--black-dim);
+  background: #f8f8f8;
+  border: 2px solid #1a1a1a;
   border-radius: 0 0 16px 16px;
   border-top: none;
-  padding: 16px 20px 16px;
+  padding: 16px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 14px;
   transition: border-color 0.3s ease;
+}
+
+/* 配信者情報なし：上カードを角丸完結、区切り線・配信者エリアを非表示 */
+.no-streamer .card {
+  border-radius: 16px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.no-streamer .card-ticket-sep,
+.no-streamer .card-streamer {
+  display: none;
 }
 
 /* ── チケット切り取り線 ── */
@@ -265,23 +275,17 @@ body::after {
   transition: border-color 0.3s ease;
 }
 
-.card-wrap:hover .card-ticket-sep {
-  border-color: var(--gold);
-  border-top-color: rgba(240,192,64,0.5);
-}
-
 .card-ticket-notch { display: none; }
 .card-ticket-line { display: none; }
 
 .card-wrap:hover .card,
 .card-wrap:hover .card-ticket-sep,
 .card-wrap:hover .card-streamer {
-  border-color: var(--gold);
+  border-color: var(--black-dim);
 }
 
 .card-wrap:hover {
-  transform: translateY(-4px);
-  transition: transform 0.3s ease;
+  transform: none;
 }
 
 /* Corner ornaments — 非表示 */
@@ -306,7 +310,7 @@ body::after {
 }
 
 .card-wrap:hover .card-portrait {
-  border-color: var(--gold);
+  border-color: var(--black-dim);
 }
 
 .card-portrait img {
@@ -411,7 +415,7 @@ body::after {
 }
 
 .card-wrap:hover .card-streamer-portrait {
-  border-color: var(--gold);
+  border-color: var(--black-dim);
 }
 
 .card-streamer-portrait img {
