@@ -236,7 +236,6 @@ body::after {
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 18px;
   position: relative;
   transition: border-color 0.3s ease;
@@ -251,7 +250,6 @@ body::after {
   padding: 16px 20px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   gap: 14px;
   transition: border-color 0.3s ease;
 }
