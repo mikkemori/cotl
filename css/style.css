@@ -156,7 +156,6 @@ body::after {
 .header-desc {
   font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
     'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
-  font-style: italic;
   color: var(--parchment-dark);
   font-size: clamp(0.85rem, 1.5vw, 1rem);
   max-width: 600px;
@@ -369,7 +368,6 @@ body::after {
   font-size: 0.8rem;
   line-height: 1.75;
   color: var(--parchment-dark);
-  font-style: italic;
 }
 
 .traits {
@@ -445,7 +443,6 @@ body::after {
   font-size: 0.72rem;
   line-height: 1.6;
   color: var(--parchment-dark);
-  font-style: italic;
 }
 
 .card-streamer-links {
