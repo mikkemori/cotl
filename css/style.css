@@ -291,8 +291,8 @@ body::after {
 
 /* ── 左：丸い画像 ── */
 .card-portrait {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #2a1c0a, #0a0600);
   border: 2px solid var(--black-dim);
@@ -302,7 +302,6 @@ body::after {
   font-size: 2rem;
   flex-shrink: 0;
   position: relative;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
   transition: border-color 0.3s ease;
   overflow: hidden;
 }
