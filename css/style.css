@@ -350,7 +350,7 @@ body::after {
 }
 
 .card-wrap:hover .card-name-tag {
-  border-color: var(--gold);
+  border-color: var(--black-dim);
 }
 
 .card-name {
