@@ -1,5 +1,5 @@
 :root {
-  --bg: #fff;
+  --bg: #ffffff;
   --bg-dark: #120e08;
   --bg-card: #1a1208;
   --bg-card2: #1e1509;
@@ -228,8 +228,8 @@ body::after {
 
 /* ── 上：信者カード ── */
 .card {
-  background: linear-gradient(160deg, #ffffff 0%, #f8f8f8 100%);
-  border: 2px solid var(--black-dim);
+  background: #f8f8f8;
+  border: 2px solid #1a1a1a;
   border-radius: 16px 16px 0 0;
   border-bottom: none;
   padding: 20px;
