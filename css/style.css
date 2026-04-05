@@ -23,7 +23,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background-color: var(--bg-deep);
+  background-color: var(--bg);
   font-family: 'IM Fell English', serif;
   color: var(--parchment);
   min-height: 100vh;
@@ -117,7 +117,7 @@ body::after {
   font-family: 'Cinzel', serif;
   font-size: 0.75rem;
   letter-spacing: 0.4em;
-  color: var(--gold-dim);
+  color: var(--black-dim);
   text-transform: uppercase;
   animation: fadeInDown 1s 0.5s ease both;
 }
@@ -144,7 +144,7 @@ body::after {
 .header-divider-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+  background: linear-gradient(to right, transparent, var(--black-dim), var(--gold), var(--black-dim), transparent);
 }
 
 .header-divider-symbol {
@@ -196,17 +196,17 @@ body::after {
 .section-label-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold-dim));
+  background: linear-gradient(to right, transparent, var(--black-dim));
 }
 .section-label-line:first-child {
-  background: linear-gradient(to left, transparent, var(--gold-dim));
+  background: linear-gradient(to left, transparent, var(--black-dim));
 }
 
 .section-label-text {
   font-family: 'Cinzel', serif;
   font-size: 0.7rem;
   letter-spacing: 0.4em;
-  color: var(--gold-dim);
+  color: var(--black-dim);
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -228,8 +228,8 @@ body::after {
 
 /* ── 上：信者カード ── */
 .card {
-  background: linear-gradient(160deg, #151009 0%, #100d06 100%);
-  border: 2px solid var(--gold-dim);
+  background: linear-gradient(160deg, #ffffff 0%, #f8f8f8 100%);
+  border: 2px solid var(--black-dim);
   border-radius: 16px 16px 0 0;
   border-bottom: none;
   padding: 20px;
@@ -245,7 +245,7 @@ body::after {
 /* ── 下：配信者セクション ── */
 .card-streamer {
   background: linear-gradient(160deg, #120e07 0%, #0e0b05 100%);
-  border: 2px solid var(--gold-dim);
+  border: 2px solid var(--black-dim);
   border-radius: 0 0 16px 16px;
   border-top: none;
   padding: 16px 20px 16px;
@@ -258,8 +258,8 @@ body::after {
 
 /* ── チケット切り取り線 ── */
 .card-ticket-sep {
-  border-left: 2px solid var(--gold-dim);
-  border-right: 2px solid var(--gold-dim);
+  border-left: 2px solid var(--black-dim);
+  border-right: 2px solid var(--black-dim);
   border-top: 2px dashed rgba(201,162,39,0.4);
   height: 0;
   transition: border-color 0.3s ease;
@@ -293,7 +293,7 @@ body::after {
   height: 90px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #2a1c0a, #0a0600);
-  border: 2px solid var(--gold-dim);
+  border: 2px solid var(--black-dim);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,8 +340,8 @@ body::after {
   top: -16px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--bg-deep);
-  border: 2px solid var(--gold-dim);
+  background: #F9F4F1;
+  border: 2px solid var(--black-dim);
   border-radius: 999px;
   padding: 4px 24px;
   white-space: nowrap;
@@ -404,7 +404,7 @@ body::after {
   height: 60px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #1e1408, #060400);
-  border: 2px solid var(--gold-dim);
+  border: 2px solid var(--black-dim);
   flex-shrink: 0;
   overflow: hidden;
   transition: border-color 0.3s ease;
@@ -460,7 +460,7 @@ body::after {
   border-radius: 6px;
   background: rgba(201,162,39,0.06);
   border: 1px solid rgba(201,162,39,0.2);
-  color: var(--gold-dim);
+  color: var(--black-dim);
   text-decoration: none;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
