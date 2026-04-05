@@ -24,7 +24,8 @@
 
 body {
   background-color: var(--bg);
-  font-family: 'IM Fell English', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   color: var(--parchment);
   min-height: 100vh;
   overflow-x: hidden;
@@ -153,7 +154,8 @@ body::after {
 }
 
 .header-desc {
-  font-family: 'IM Fell English', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-style: italic;
   color: var(--parchment-dark);
   font-size: clamp(0.85rem, 1.5vw, 1rem);
