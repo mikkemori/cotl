@@ -232,8 +232,8 @@ body::after {
   border: 2px solid #1a1a1a;
   border-radius: 16px 16px 0 0;
   border-bottom: none;
-  padding: 20px;
-  padding-bottom: 20px;
+  padding: 2rem 1rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: row;
   gap: 18px;
@@ -359,7 +359,7 @@ body::after {
   font-family: 'Cinzel Decorative', serif;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--gold-bright);
+  color: var(--black-dim);
   text-align: center;
   text-shadow: 0 0 12px rgba(240,192,64,0.3);
 }
