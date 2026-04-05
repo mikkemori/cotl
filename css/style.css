@@ -236,7 +236,7 @@ body::after {
   padding-bottom: 2rem;
   display: flex;
   flex-direction: row;
-  gap: 18px;
+  gap: 12px;
   position: relative;
   transition: border-color 0.3s ease;
 }
@@ -364,7 +364,7 @@ body::after {
 }
 
 .card-desc {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.75;
   color: var(--parchment-dark);
   font-style: italic;
@@ -378,14 +378,14 @@ body::after {
 
 .trait {
   font-family: 'Cinzel', serif;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--parchment-dark);
   border: 1px solid rgba(138,112,64,0.4);
   padding: 3px 9px;
   border-radius: 3px;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.02);
   white-space: nowrap;
 }
 
