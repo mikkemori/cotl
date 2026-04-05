@@ -104,7 +104,8 @@ body::after {
 }
 
 .header-subtitle {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: clamp(1.2rem, 3.5vw, 2.2rem);
   font-weight: 400;
   color: var(--blood-bright);
@@ -115,7 +116,8 @@ body::after {
 }
 
 .header-subnote {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.4em;
   color: var(--black-dim);
@@ -204,7 +206,8 @@ body::after {
 }
 
 .section-label-text {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.4em;
   color: var(--black-dim);
@@ -356,7 +359,8 @@ body::after {
 }
 
 .card-name {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--black-dim);
@@ -377,7 +381,8 @@ body::after {
 }
 
 .trait {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -392,7 +397,8 @@ body::after {
 .card-divider { display: none; }
 
 .card-number {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.5rem;
   color: rgba(138,112,64,0.2);
   letter-spacing: 0.1em;
@@ -432,7 +438,8 @@ body::after {
 }
 
 .card-streamer-name {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--parchment);
@@ -489,7 +496,8 @@ body::after {
 }
 
 .footer-text {
-  font-family: 'Cinzel', serif;
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
   font-size: 0.6rem;
   letter-spacing: 0.35em;
   color: rgba(138,112,64,0.4);
