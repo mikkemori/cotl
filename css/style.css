@@ -535,7 +535,8 @@ body::after {
 }
 
 @media (max-width: 480px) {
-  .card, .card-streamer { padding: 14px; gap: 12px; }
+  .card { padding: 1.6rem 1rem; gap: 12px; }
+  .card-streamer { padding: 1rem; gap: 12px; }
   .card-portrait { width: 72px; height: 72px; }
   .card-streamer-portrait { width: 48px; height: 48px; }
 }
