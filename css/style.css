@@ -540,3 +540,19 @@ body::after {
   .card-portrait { width: 72px; height: 72px; }
   .card-streamer-portrait { width: 48px; height: 48px; }
 }
+
+/* ===== SECTION NOTE ===== */
+.section-label-text {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin: 0;
+}
+.section-note {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--parchment-dark);
+  margin: -14px 0 28px;
+}
+.grid + .section-label { margin-top: 70px; }
