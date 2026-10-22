@@ -1,0 +1,558 @@
+:root {
+  --bg: #ffffff;
+  --bg-dark: #120e08;
+  --bg-card: #1a1208;
+  --bg-card2: #1e1509;
+  --parchment: #c4a96a;
+  --parchment-light: #d4bc8a;
+  --parchment-dark: #8b7040;
+  --blood: #8b1a1a;
+  --blood-bright: #c0392b;
+  --gold: #c9a227;
+  --gold-bright: #f0c040;
+  --black-dim: #1A1A1A;
+  --crimson: #6b0f0f;
+  --rune: #9b3030;
+  --shadow: rgba(0,0,0,0.85);
+  --ember: #d4612b;
+  --ember-glow: rgba(212, 97, 43, 0.3);
+  --card-border: #3a2a12;
+  --highlight: #e8d5a0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg);
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  color: var(--parchment);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%23c9a227' opacity='0.8'/%3E%3C/svg%3E") 10 10, auto;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,26,26,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 20% 50%, rgba(212,97,43,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 50%, rgba(212,97,43,0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* ===== LAYOUT ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.bg-rune {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  font-size: 40vw;
+  color: var(--blood);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+
+/* ===== HEADER ===== */
+.header {
+  text-align: center;
+  padding: 60px 20px 40px;
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+}
+
+.header-logo {
+  display: block;
+  max-width: 480px;
+  width: 90%;
+  margin: 0 auto 12px;
+  animation: fadeInDown 1s 0.2s ease both;
+  opacity: 0;
+}
+
+.header-subtitle {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: clamp(1.2rem, 3.5vw, 2.2rem);
+  font-weight: 400;
+  color: var(--blood-bright);
+  letter-spacing: 0.08em;
+  animation: fadeInDown 1s 0.4s ease both;
+  margin-bottom: 8px;
+}
+
+.header-subnote {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.4em;
+  color: var(--black-dim);
+  text-transform: uppercase;
+  animation: fadeInDown 1s 0.5s ease both;
+}
+
+.header-eye {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  animation: eyePulse 3s ease-in-out infinite, fadeInDown 1s 0.3s ease both;
+  object-fit: contain;
+}
+
+.header-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 30px auto;
+  max-width: 600px;
+  animation: fadeIn 1.5s 0.8s ease both;
+  opacity: 0;
+}
+
+.header-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--black-dim), var(--gold), var(--black-dim), transparent);
+}
+
+.header-divider-symbol {
+  color: var(--gold);
+  font-size: 1.2rem;
+}
+
+.header-desc {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  color: var(--parchment-dark);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+  animation: fadeIn 1.5s 1s ease both;
+  opacity: 0;
+}
+
+.candles-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px 0;
+  opacity: 0.7;
+}
+
+.candle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  animation: candleFlicker 2s ease-in-out infinite;
+}
+.candle:nth-child(2) { animation-delay: 0.7s; animation-duration: 2.3s; }
+.candle:nth-child(3) { animation-delay: 1.2s; animation-duration: 1.8s; }
+
+.candle-flame { font-size: 1rem; }
+
+/* ===== SECTION LABELS ===== */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 60px 0 30px;
+  animation: fadeIn 1s ease both;
+}
+
+.section-label-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--black-dim));
+}
+.section-label-line:first-child {
+  background: linear-gradient(to left, transparent, var(--black-dim));
+}
+
+.section-label-text {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  color: var(--black-dim);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ===== GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px 10px;
+}
+
+/* ===== CARD WRAP ===== */
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  animation: fadeInUp 0.8s ease both;
+  opacity: 0;
+}
+
+/* ── 上：信者カード ── */
+.card {
+  background: #f8f8f8;
+  border: 2px solid #1a1a1a;
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
+  padding: 1.8rem 0.6rem 1.2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+/* ── 下：配信者セクション ── */
+.card-streamer {
+  background: #f8f8f8;
+  border: 2px solid #1a1a1a;
+  border-radius: 0 0 16px 16px;
+  border-top: none;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+  transition: border-color 0.3s ease;
+}
+
+/* 配信者情報なし：上カードを角丸完結、区切り線・配信者エリアを非表示 */
+.no-streamer .card {
+  border-radius: 16px;
+  border-bottom: 2px solid #1a1a1a;
+}
+.no-streamer .card-ticket-sep,
+.no-streamer .card-streamer {
+  display: none;
+}
+
+/* ── チケット切り取り線 ── */
+.card-ticket-sep {
+  border-left: 2px solid var(--black-dim);
+  border-right: 2px solid var(--black-dim);
+  border-top: 2px dashed rgba(201,162,39,0.4);
+  height: 0;
+  transition: border-color 0.3s ease;
+}
+
+.card-ticket-notch { display: none; }
+.card-ticket-line { display: none; }
+
+.card-wrap:hover .card,
+.card-wrap:hover .card-ticket-sep,
+.card-wrap:hover .card-streamer {
+  border-color: var(--black-dim);
+}
+
+.card-wrap:hover {
+  transform: none;
+}
+
+/* Corner ornaments — 非表示 */
+.card-corner { display: none; }
+
+/* ── 左：丸い画像 ── */
+.card-portrait {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #2a1c0a, #0a0600);
+  border: 2px solid var(--black-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.card-wrap:hover .card-portrait {
+  border-color: var(--black-dim);
+}
+
+.card-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-portrait-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 28%, rgba(201,162,39,0.15), transparent 60%);
+  pointer-events: none;
+}
+
+/* ── 右：テキストエリア ── */
+.card-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* 名前は枠の上部中央に飛び出す */
+.card-name-tag {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F9F4F1;
+  border: 2px solid var(--black-dim);
+  border-radius: 999px;
+  padding: 4px 24px;
+  white-space: nowrap;
+  transition: border-color 0.3s ease;
+  z-index: 1;
+}
+
+.card-wrap:hover .card-name-tag {
+  border-color: var(--black-dim);
+}
+
+.card-name {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--black-dim);
+  text-align: center;
+  text-shadow: 0 0 12px rgba(240,192,64,0.3);
+}
+
+.card-desc {
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--parchment-dark);
+}
+
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.trait {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--parchment-dark);
+  border: 1px solid rgba(138,112,64,0.4);
+  padding: 2px 6px 2px 7px;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.02);
+  white-space: nowrap;
+}
+
+.card-divider { display: none; }
+
+.card-number {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.5rem;
+  color: rgba(138,112,64,0.2);
+  letter-spacing: 0.1em;
+}
+
+/* ── 配信者アイコン ── */
+
+.card-streamer-portrait {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #1e1408, #060400);
+  border: 2px solid var(--black-dim);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.card-wrap:hover .card-streamer-portrait {
+  border-color: var(--black-dim);
+}
+
+.card-streamer-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.card-streamer-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-streamer-name {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--parchment);
+  letter-spacing: 0.05em;
+}
+
+.card-streamer-desc {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--parchment-dark);
+}
+
+.card-streamer-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.streamer-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(201,162,39,0.06);
+  border: 1px solid rgba(201,162,39,0.2);
+  color: var(--black-dim);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.streamer-link:hover {
+  background: rgba(201,162,39,0.18);
+  color: var(--gold-bright);
+  border-color: var(--gold);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 80px;
+  text-align: center;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(201,162,39,0.1);
+}
+
+.footer-symbol {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 12px;
+  animation: eyePulse 4s ease-in-out infinite;
+  object-fit: contain;
+}
+
+.footer-text {
+  font-family: Bahnschrift, 'DIN Alternate', 'Franklin Gothic Medium', 'Nimbus Sans Narrow',
+    'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: rgba(138,112,64,0.4);
+  text-transform: uppercase;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes eyePulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+@keyframes candleFlicker {
+  0%, 100% { opacity: 0.8; transform: scaleY(1); }
+  25% { opacity: 0.6; transform: scaleY(0.95); }
+  75% { opacity: 0.9; transform: scaleY(1.03); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .header { padding: 40px 16px 30px; }
+}
+
+@media (max-width: 480px) {
+  .card { padding: 1.6rem 1rem; gap: 12px; }
+  .card-streamer { padding: 1rem; gap: 12px; }
+  .card-portrait { width: 72px; height: 72px; }
+  .card-streamer-portrait { width: 48px; height: 48px; }
+}
+
+/* ===== SECTION NOTE ===== */
+.section-label-text {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin: 0;
+}
+.section-note {
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--parchment-dark);
+  margin: -14px 0 28px;
+}
+.grid + .section-label { margin-top: 70px; }
